@@ -17,7 +17,7 @@ public class RopeControllerSimple : MonoBehaviour
     public List<Vector3> allRopeSections = new List<Vector3>();
 
     //Rope data
-    private float ropeLength = 1f;
+    public float ropeLength = 1f;
     private float minRopeLength = 1f;
     private float maxRopeLength = 20f;
     //Mass of what the rope is carrying
@@ -44,8 +44,6 @@ public class RopeControllerSimple : MonoBehaviour
 	
 	void Update() 
 	{
-        //Add more/less rope
-        UpdateWinch();
 
         //Display the rope with a line renderer
         DisplayRope();
@@ -63,7 +61,7 @@ public class RopeControllerSimple : MonoBehaviour
         //Density of the wire (stainless steel) kg/m3
         float density = 7750f;
         //The radius of the wire
-        float radius = 0.02f;
+        float radius = 0.005f;
 
         float volume = Mathf.PI * radius * radius * ropeLength;
 
@@ -99,7 +97,7 @@ public class RopeControllerSimple : MonoBehaviour
     private void DisplayRope()
     {
         //This is not the actual width, but the width use so we can see the rope
-        float ropeWidth = 0.2f;
+        float ropeWidth = 0.04f;
 
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
@@ -141,34 +139,5 @@ public class RopeControllerSimple : MonoBehaviour
         lineRenderer.positionCount = positions.Length;
 
         lineRenderer.SetPositions(positions);
-    }
-
-    //Add more/less rope
-    private void UpdateWinch()
-    {
-        bool hasChangedRope = false;
-
-        //More rope
-        if (Input.GetKey(KeyCode.O) && ropeLength < maxRopeLength)
-        {
-            ropeLength += winchSpeed * Time.deltaTime;
-
-            hasChangedRope = true;
-        }
-        else if (Input.GetKey(KeyCode.I) && ropeLength > minRopeLength)
-        {
-            ropeLength -= winchSpeed * Time.deltaTime;
-
-            hasChangedRope = true;
-        }
-
-
-        if (hasChangedRope)
-        {
-            ropeLength = Mathf.Clamp(ropeLength, minRopeLength, maxRopeLength);
-
-            //Need to recalculate the k-value because it depends on the length of the rope
-            UpdateSpring();
-        }
     }
 }

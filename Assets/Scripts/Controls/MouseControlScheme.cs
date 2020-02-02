@@ -24,6 +24,7 @@ public class MouseControlScheme : MonoBehaviour
     public float cameraH;
 
 	public bool m_cursorIsLocked = true;
+    public bool lockMode = false;
     
     public GrabberAimer grabAimer;
     public Grabber grabber;
@@ -31,6 +32,12 @@ public class MouseControlScheme : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyUp(KeyCode.T)) {
+            lockMode = !lockMode;
+        }
+        if(lockMode) {
+            return;
+        }
         mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         leftMouseButton = Input.GetMouseButton(0);
         rightMouseButton = Input.GetMouseButton(1);

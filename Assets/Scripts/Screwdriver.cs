@@ -21,6 +21,9 @@ public class Screwdriver : MonoBehaviour
     {
         if(mySocketable.grabber) {
             transform.up = transform.position - mySocketable.grabber.aimer.raycastStartPos.position;
+            if(!currentScrew) {
+                transform.localPosition = Vector3.zero;
+            }
             AlignToScrew();
         }
     }

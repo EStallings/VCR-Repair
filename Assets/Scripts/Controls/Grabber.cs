@@ -22,7 +22,7 @@ public class Grabber : MonoBehaviour
     }
 
     public bool TryGrab() {
-        if(grabCandidate && !grabCandidate.IsRetainedByScrews()) {
+        if(grabCandidate && grabCandidate.CanBeRemoved()) {
             grabbed = grabCandidate;
             grabCandidate.highlighter.OnHoverEnd();
             myRenderer.enabled = false;
@@ -49,10 +49,18 @@ public class Grabber : MonoBehaviour
         transform.localEulerAngles = new Vector3(rotateV, rotateH, 0);
     }
 
-    void OnTriggerEnter(Collider coll) {
+    void OnTriggerStay(Collider coll) {
         if(grabbed) return;
-        var g = coll.GetComponent<Socketable>();
+        var g = coll.GetComponentInParent<Socketable>();
         if(g) {
+            if(grabCandidate) {
+                if(g.priority > grabCandidate.priority || grabCandidate.IsRetainedByScrews() && !g.IsRetainedByScrews()) {
+                    grabCandidate.highlighter.OnHoverEnd();
+                }
+                else {
+                    return;
+                }
+            }
             grabCandidate = g;
             g.highlighter.OnHoverBegin();
         }
@@ -60,7 +68,7 @@ public class Grabber : MonoBehaviour
 
     void OnTriggerExit(Collider coll) {
         if(grabbed) return;
-        var g = coll.GetComponent<Socketable>();
+        var g = coll.GetComponentInParent<Socketable>();
         if(g && g == grabCandidate) {
             grabCandidate = null;
             g.highlighter.OnHoverEnd();

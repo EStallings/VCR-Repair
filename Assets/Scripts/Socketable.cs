@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class Socketable : MonoBehaviour
     public bool lastRetained;
 
     [Header("Real Stuff")]
+    public int priority;
     public string model;
     public Socket.SocketType socketType;
     public List<Socket> screwSockets;
@@ -20,6 +22,12 @@ public class Socketable : MonoBehaviour
     public float removalRate = 1;
     public float removalHeight = 0.05f;
     public bool functioning = false;
+
+    public bool CanBeRemoved()
+    {
+        return !IsRetainedByScrews() && (socketType == Socket.SocketType.Screw ? removalAmount >= 0.99 : true);
+    }
+
     public bool canBeMoved = true;
     public bool defaultKinematic = false;
     public bool resetPositionOnPickup = false;
@@ -87,8 +95,10 @@ public class Socketable : MonoBehaviour
             if(!defaultKinematic) {
                 myRb.isKinematic = false;
             }
-            transform.parent = null;
-            transform.position = transform.position + Vector3.up * 0.2f;
+            if(canBeMoved) {
+                transform.parent = null;
+                transform.position = transform.position + Vector3.up * 0.2f;
+            }
             if(resetPositionOnPickup) {
                 transform.position = startPosition;
             }
