@@ -16,7 +16,6 @@ public class Socketable : MonoBehaviour
     public int priority;
     public string model;
     public Socket.SocketType socketType;
-    public List<Socket> screwSockets;
     public float removalAmount;
     public float threadPitch = 1;
     public float removalRate = 1;
@@ -51,7 +50,8 @@ public class Socketable : MonoBehaviour
     }
 
     public bool IsRetainedByScrews() {
-        foreach(var screw in screwSockets) {
+        if(!currentSocket) return false;
+        foreach(var screw in currentSocket.screwSockets) {
             if(screw.currentOccupant) {
                 return true;
             }

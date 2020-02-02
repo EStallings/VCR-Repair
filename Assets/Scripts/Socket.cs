@@ -8,6 +8,8 @@ public class Socket : MonoBehaviour
     public bool lastFunctioning;
 
     [Header("Actual stuff")]
+    public List<Socket> screwSockets;
+    public List<Socket> requiredSockets;
     public List<string> modelsAllowed;
     public SocketType socketType;
     public Socketable currentOccupant;
@@ -23,6 +25,22 @@ public class Socket : MonoBehaviour
         Motor,
         Screw,
         Case,
+        VHS,
+        AVPlug,
+    }
+
+    public bool CanSocketObject() {
+        bool can = true;
+        foreach(var socket in requiredSockets) {
+            if(socket.currentOccupant) {
+                if(socket.currentOccupant.socketType == SocketType.Screw && socket.currentOccupant.removalAmount <= 0.01f) {
+                    can = false;
+                }
+            } else {
+                can = false;
+            }
+        }
+        return can;
     }
     
     public bool IsFunctioning() {
