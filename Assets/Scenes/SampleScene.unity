@@ -3115,7 +3115,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 1
@@ -4435,7 +4435,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 0
   defaultKinematic: 1
   resetPositionOnPickup: 0
@@ -7728,7 +7728,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -11978,7 +11978,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -13571,7 +13571,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 1
@@ -20314,7 +20314,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -24374,7 +24374,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 1
@@ -34603,7 +34603,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -38579,7 +38579,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -41169,7 +41169,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -43581,7 +43581,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
@@ -44287,7 +44287,7 @@ MonoBehaviour:
   threadPitch: 1
   removalRate: 1
   removalHeight: 0.05
-  functioning: 0
+  functioning: 1
   canBeMoved: 1
   defaultKinematic: 0
   resetPositionOnPickup: 0
