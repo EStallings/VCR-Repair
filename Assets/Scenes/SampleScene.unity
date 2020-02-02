@@ -7835,7 +7835,7 @@ MonoBehaviour:
   requiredSockets: []
   modelsAllowed:
   - HD201
-  socketType: 1
+  socketType: 4
   currentOccupant: {fileID: 0}
   dependencies: []
 --- !u!65 &654543554
@@ -21510,8 +21510,9 @@ MonoBehaviour:
   lastFunctioning: 0
   screwSockets: []
   requiredSockets: []
-  modelsAllowed: []
-  socketType: 0
+  modelsAllowed:
+  - HD201
+  socketType: 1
   currentOccupant: {fileID: 0}
   dependencies: []
 --- !u!65 &1448768994
